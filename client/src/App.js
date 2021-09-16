@@ -10,7 +10,7 @@ const App = () => {
     return(
 <Container maxidth = "sm">
         <AppBar className={classes.appBar} position="static" color="inherit">
-            <Typography variant = "h2" alighn="center">
+            <Typography className={classes.heading} variant = "h2" alighn="center">
             
             Memories
 
