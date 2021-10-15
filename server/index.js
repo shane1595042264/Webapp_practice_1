@@ -19,7 +19,7 @@ app.get('/',(req, res)=>{
 })
 
 const CONNECTION_URL = 'mongodb+srv://douvleplus:Mark321654.@cluster0.fz0al.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-const PORT = process.env.PORT|| 8000;
+const PORT = process.env.PORT|| 3000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true }) //a promise
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
