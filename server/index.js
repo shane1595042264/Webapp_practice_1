@@ -1,24 +1,28 @@
 
 import express from 'express';
-import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
-
+import dotenv from 'dotenv';
 import postRoutes from './routes/posts.js';
 
 const app = express();
+dotenv.config();
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }))
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
+app.use(express.json({ limit: '30mb', extended: true }))
+app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
 app.use('/posts', postRoutes);
 
-const CONNECTION_URL = 'mongodb+srv://js_mastery:123123123@practice.jto9p.mongodb.net/test';
-const PORT = process.env.PORT|| 5000;
+app.get('/',(req, res)=>{
+  res.send('Hello to Waestem API')
+})
 
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+const CONNECTION_URL = 'mongodb+srv://douvleplus:Mark321654.@cluster0.fz0al.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const PORT = process.env.PORT|| 8000;
+
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true }) //a promise
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));
 
-mongoose.set('useFindAndModify', false);
+mongoose.set('useFindAndModify', true ); // make sure don't get any warning in the console
