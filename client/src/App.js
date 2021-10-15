@@ -7,6 +7,7 @@ import Form from './components/Form/Form';
 import { getPosts } from './actions/posts';
 import useStyles from './styles';
 import memories from './images/waestem.png';
+import head from './images/avatar.png';
 
 const App = () => {
   const [currentId, setCurrentId] = useState(0);
@@ -22,7 +23,7 @@ const App = () => {
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h3" align="center">Waestem Discussion{/* This is where the title sits */}</Typography>  
         <img className={classes.image} src={memories} alt="icon" height="60" />
-        
+        <img className={classes.image} src={head} alt="icon" height="60" />
       </AppBar>
       <Grow in>
         <Container>

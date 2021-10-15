@@ -7,19 +7,17 @@ import postRoutes from './routes/posts.js';
 
 const app = express();
 dotenv.config();
+app.use('/posts', postRoutes);
 
 app.use(express.json({ limit: '30mb', extended: true }))
 app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
-app.use('/posts', postRoutes);
 
-app.get('/',(req, res)=>{
-  res.send('Hello to Waestem API')
-})
+
 
 const CONNECTION_URL = 'mongodb+srv://douvleplus:Mark321654.@cluster0.fz0al.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-const PORT = process.env.PORT|| 3000;
+const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true }) //a promise
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
