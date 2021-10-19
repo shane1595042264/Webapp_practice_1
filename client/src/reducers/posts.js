@@ -1,6 +1,6 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
 
-export default (posts = [], action) => {
+const p = (posts = [], action) => {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;
@@ -14,6 +14,8 @@ export default (posts = [], action) => {
       return posts.filter((post) => post._id !== action.payload); // keep all the posts except the one we need to delete.
     default:
       return posts;
-  }
+  };
 };
+
+export default p;
 

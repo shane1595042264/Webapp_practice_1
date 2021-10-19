@@ -21,13 +21,13 @@ const App = () => {
   return (
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h3" align="center">Waestem Discussion{/* This is where the title sits */}</Typography>  
+        <Typography className={classes.heading} variant="h3" align="center">Discussion{/* This is where the title sits */}</Typography>  
         <img className={classes.image} src={memories} alt="icon" height="60" />
         <img className={classes.image} src={head} alt="icon" height="60" />
       </AppBar>
       <Grow in>
         <Container>
-          <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+          <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={7}>
               <Posts setCurrentId={setCurrentId} />
             </Grid>
