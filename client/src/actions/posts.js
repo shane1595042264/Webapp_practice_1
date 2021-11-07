@@ -3,13 +3,13 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionType
 
 // Action Creators
 
-export const getPosts = () => async (dispatch) => {
+export const getPosts = () => async (dispatch) => { //There is an error here
 try {
     const {data} = await api.fetchPosts();
 
     dispatch({type: FETCH_ALL, payload: data});
 }catch(error){
-    console.log(error.message);
+    console.log(error); // <--------- error
 
 }
 
